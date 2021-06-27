@@ -1,0 +1,3 @@
+rootProject.name = 'Conde_Nast_Automation'
+include 'core'
+

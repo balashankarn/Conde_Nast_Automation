@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+}
+
+version 'unspecified'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+    maven{
+        url "http://mvn.testinium.com/repository/public/"
+    }
+}
+
+dependencies {
+
+    //Selenium
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+    //Testng
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+
+    //Appium
+    testCompile group: 'io.appium', name: 'java-client', version: '6.0.0'
+
+    //Jackson
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.0'
+
+    // https://mvnrepository.com/artifact/com.google.android/android
+    compile group: 'com.google.android', name: 'android', version: '4.1.1.4'
+
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    compile group: 'com.aventstack', name: 'extentreports', version: '5.0.1'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.2'
+
+    // https://mvnrepository.com/artifact/com.testinium.mobile/mobile-arch
+    compile group: 'com.testinium.deviceinformation', name: 'device-information', version: '1.0'
+
+}
+test {
+    ignoreFailures = true
+
+    include "**/Test*.class"
+    include "**/*Test.class"
+    systemProperty 'arg1',System.getProperty('arg1')
+    def groups = System.getProperty('groups', 'sanity,all')
+
+
+    useTestNG() {
+        useDefaultListeners = true
+        groupByInstances = true
+        includeGroups groups
+        scanForTestClasses = false
+        testLogging.showStandardStreams = true
+    }
+}
+
+
+
