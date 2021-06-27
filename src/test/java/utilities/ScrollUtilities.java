@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
 /**
- * Created by Balashankar and Srivalli
+ * Created by Balashankar
  */
 public class ScrollUtilities {
 

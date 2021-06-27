@@ -20,7 +20,9 @@ import org.testng.annotations.*;
 import reports.ReportLibrary;
 import utilities.ScreenshotUtility;
 import utilities.WaitUtilities;
-
+/**
+ * Created by Balashankar
+ */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -67,7 +69,6 @@ public class BaseSetup {
     public void setup() throws IOException {
 
         reportLibrary = new ReportLibrary();
-
         this.defineProperties();
         this.startServer();
         this.defineJson(properties.getProperty(LOGIN_DATA_JSON_PATH));
@@ -75,7 +76,7 @@ public class BaseSetup {
         this.startReport();
         WaitUtilities.initWait(driver, TIMEOUT_IN_SECONDS);
     }
-
+//code for reading the cofig properties file
     protected void defineProperties() {
         properties = new Properties();
         try {
@@ -89,7 +90,7 @@ public class BaseSetup {
             e.printStackTrace();
         }
     }
-
+//creating object mapper for json praser
     protected void defineJson(String jsonFileName) {
         mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
@@ -119,7 +120,7 @@ public class BaseSetup {
             logger.error("Exception in Appium server start ===== "+e);
         }
     }
-
+// Code for defining Desired capabilities and passing device details
     private void defineDevice() throws MalformedURLException {
 
         System.out.println("Inside capabilities");
@@ -139,7 +140,7 @@ public class BaseSetup {
 
             driver = new AndroidDriver<>(new URL(appiumServiceUrl), capabilities);
         }
-
+//code for starting reports
         private void startReport() {
             try {
 
@@ -156,7 +157,7 @@ public class BaseSetup {
     public void beforeMethodSetup() {
 
     }
-
+//Code for generating report with pass fail everyting
     @AfterMethod(alwaysRun = true)
     public void closeMethod(ITestResult result) {
 
@@ -180,7 +181,7 @@ public class BaseSetup {
     public void resetApp(){
         //driver.resetApp();
     }
-
+// ending the report
     @AfterSuite(alwaysRun = true)
     public void close() {
         reportLibrary.endReport();

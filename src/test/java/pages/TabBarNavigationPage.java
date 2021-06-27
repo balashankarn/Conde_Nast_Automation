@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by Balashankar and Srivalli
+ * Created by Balashankar
  */
 public class TabBarNavigationPage extends BaseSetup {
 

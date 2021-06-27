@@ -1,5 +1,7 @@
 package utilities;
-
+/**
+ * Created by Balashankar
+ */
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -7,7 +9,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class AppPermissionsUtilities {
-
+// code for  device app permission
     private AndroidDriver<AndroidElement> driver;
 
     @AndroidFindBy(id ="com.android.permissioncontroller:id/permission_allow_button")

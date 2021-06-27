@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by Balashankar and Srivalli
+ * Created by Balashankar
  */
 public class HomePage extends BaseSetup {
 
@@ -83,6 +83,12 @@ public class HomePage extends BaseSetup {
     @AndroidFindBy(id = "com.magzter.condenasttravellerindia:id/subscribe_offer_buy_button")
     private AndroidElement Offer_Subscribe_Button;
 
+    public AndroidElement getNo_Result_Found() {
+        return no_Result_Found;
+    }
+
+    @AndroidFindBy(id = "com.magzter.condenasttravellerindia:id/txt_noMags")
+    private AndroidElement no_Result_Found;
 
 
 }
